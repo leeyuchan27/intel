@@ -30,15 +30,25 @@ public class BoardEntity extends BaseEntity {//DB의 테이블 역할을 하는 
     @Column
     private int boardHits;
 
-    public static BoardEntity toSaveEntity(BoardDTO boardDto){
+    public static BoardEntity toSaveEntity(BoardDTO boardDTO){
         BoardEntity boardEntity = new BoardEntity();
-        boardEntity.setBoardWriter(boardDto.getBoardWriter());
-        boardEntity.setBoardPass(boardDto.getBoardPass());
-        boardEntity.setBoardTitle(boardDto.getBoardTitle());
-        boardEntity.setBoardContents(boardDto.getBoardContents());
+        boardEntity.setBoardWriter(boardDTO.getBoardWriter());
+        boardEntity.setBoardPass(boardDTO.getBoardPass());
+        boardEntity.setBoardTitle(boardDTO.getBoardTitle());
+        boardEntity.setBoardContents(boardDTO.getBoardContents());
         boardEntity.setBoardHits(0);
         return boardEntity;
     }
 
 
+    public static BoardEntity toUpdateEntity(BoardDTO boardDTO) {
+        BoardEntity boardEntity = new BoardEntity();
+        boardEntity.setId(boardDTO.getId());
+        boardEntity.setBoardWriter(boardDTO.getBoardWriter());
+        boardEntity.setBoardPass(boardDTO.getBoardPass());
+        boardEntity.setBoardTitle(boardDTO.getBoardTitle());
+        boardEntity.setBoardContents(boardDTO.getBoardContents());
+        boardEntity.setBoardHits(boardEntity.getBoardHits());
+        return boardEntity;
+    }
 }

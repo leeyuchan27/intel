@@ -30,6 +30,8 @@ public class BoardEntity extends BaseEntity {//DB의 테이블 역할을 하는 
     @Column
     private int boardHits;
 
+
+
     public static BoardEntity toSaveEntity(BoardDTO boardDTO){
         BoardEntity boardEntity = new BoardEntity();
         boardEntity.setBoardWriter(boardDTO.getBoardWriter());
@@ -37,6 +39,7 @@ public class BoardEntity extends BaseEntity {//DB의 테이블 역할을 하는 
         boardEntity.setBoardTitle(boardDTO.getBoardTitle());
         boardEntity.setBoardContents(boardDTO.getBoardContents());
         boardEntity.setBoardHits(0);
+
         return boardEntity;
     }
 
